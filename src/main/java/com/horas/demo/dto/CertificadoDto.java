@@ -1,20 +1,13 @@
-package com.pagamento.demo.model;
+package com.horas.demo.dto;
+
+import org.springframework.hateoas.RepresentationModel;
 
 import java.util.Date;
 
-public class Certificado {
-    private Long id;
+public class CertificadoDto extends RepresentationModel<CertificadoDto> {
     private String nome;
     private Long horas;
     private Date dataEvento;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;

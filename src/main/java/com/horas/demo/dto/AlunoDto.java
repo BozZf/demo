@@ -1,4 +1,4 @@
-package com.pagamento.demo.data;
+package com.horas.demo.dto;
 
 import org.springframework.hateoas.RepresentationModel;
 

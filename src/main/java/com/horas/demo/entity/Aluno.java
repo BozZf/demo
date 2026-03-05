@@ -1,4 +1,4 @@
-package com.pagamento.demo.model;
+package com.horas.demo.entity;
 
 public class Aluno {
     private Long id;

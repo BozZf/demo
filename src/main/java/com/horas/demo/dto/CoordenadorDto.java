@@ -1,17 +1,10 @@
-package com.pagamento.demo.model;
+package com.horas.demo.dto;
 
-public class Coordenador {
-    private Long  id;
+import org.springframework.hateoas.RepresentationModel;
+
+public class CoordenadorDto extends RepresentationModel<CoordenadorDto> {
     private String nome;
     private Long registroProfissional;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
