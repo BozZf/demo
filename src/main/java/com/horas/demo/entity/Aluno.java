@@ -2,9 +2,12 @@ package com.horas.demo.entity;
 
 public class Aluno {
     private Long id;
+    private String username;
+    private String password;
     private String nome;
     private String email;
-    private Long studentId;
+    private Long estudanteId;
+
 
     public Long getId() {
         return id;
@@ -12,6 +15,22 @@ public class Aluno {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getNome() {
@@ -31,10 +50,10 @@ public class Aluno {
     }
 
     public Long getStudentId() {
-        return studentId;
+        return estudanteId;
     }
 
     public void setStudentId(Long studentId) {
-        this.studentId = studentId;
+        this.estudanteId = studentId;
     }
 }

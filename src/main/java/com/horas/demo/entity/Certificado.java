@@ -7,6 +7,7 @@ public class Certificado {
     private String nome;
     private Long horas;
     private Date dataEvento;
+    private Boolean checado = false;
 
     public Long getId() {
         return id;
@@ -38,5 +39,13 @@ public class Certificado {
 
     public void setDataEvento(Date dataEvento) {
         this.dataEvento = dataEvento;
+    }
+
+    public Boolean getChecado() {
+        return checado;
+    }
+
+    public void setChecado(Boolean checado) {
+        this.checado = checado;
     }
 }
