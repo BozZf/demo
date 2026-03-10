@@ -8,6 +8,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface AlunoRepository extends JpaRepository<Aluno, Long> {
 
+    Boolean existsByUsername(String username);
+
     @Query("SELECT a FROM Aluno a WHERE a.nome = :nome")
     Aluno findByName(@Param("nome") String nome);
 

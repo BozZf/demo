@@ -9,6 +9,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface CoordenadorRepository extends CrudRepository<Coordenador, Long> {
 
+    Boolean existsByUsername(String username);
+
     @Query("SELECT c FROM Coordenador c WHERE c.nome = :nome")
     Coordenador findByName(@Param("nome") String nome);
 
