@@ -1,6 +1,9 @@
 package com.horas.demo.service.imp;
 
 import com.horas.demo.dto.AlunoDto;
+import com.horas.demo.dto.mapper.DTOMapper;
+import com.horas.demo.entity.Aluno;
+import com.horas.demo.exception.RequiredObjetIsNull;
 import com.horas.demo.repository.AlunoRepository;
 import com.horas.demo.service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +25,21 @@ public class AlunoServiceImp implements AlunoService {
     }
 
     @Override
-    public AlunoDto createAluno(AlunoDto alunoDto) {
-        if (alunoDto == null) {
-            throw new RequiredObjectIsNull();
+    public AlunoDto createAluno(AlunoDto alunoDtoToCreate) {
+        if (alunoDtoToCreate == null) {
+            throw new RequiredObjetIsNull();
         }
-        if (alunoDto.getUsername() == null || alunoRepository.existsByUsername(alunoDto.getUsername())) {
+        if (alunoDtoToCreate.getUsername() == null || alunoRepository.existsByUsername(alunoDtoToCreate.getUsername())) {
             throw new IllegalArgumentException();
         }
+
+        var entity = DTOMapper.parseObject(alunoDtoToCreate, Aluno.class);
+        entity.setPassword(passwordEncoding(alunoDtoToCreate.getPassword()));
+
+        var dto = DTOMapper.parseObject(alunoDtoToCreate, AlunoDto.class);
+        return dto;
+
     }
+
+    private String passwordEncoding(String password) { return passwordEncoder.encode(password);}
 }
