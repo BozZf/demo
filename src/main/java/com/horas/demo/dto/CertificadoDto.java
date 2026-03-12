@@ -9,7 +9,7 @@ public class CertificadoDto extends RepresentationModel<CertificadoDto> {
     private String nome;
     private Long horas;
     private Date dataEvento;
-    private Boolean checado;
+    private boolean checado;
 
     public String getNome() {
         return nome;

@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class TokenDto {
     private String username;
-    private Boolean authenticated;
+    private boolean authenticated;
     private Date created;
     private Date expiration;
     private String accessToken;

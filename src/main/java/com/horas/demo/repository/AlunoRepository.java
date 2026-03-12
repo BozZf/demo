@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface AlunoRepository extends JpaRepository<Aluno, Long> {
 
-    Boolean existsByUsername(String username);
+    boolean existsByUsername(String username);
 
     @Query("SELECT a FROM Aluno a WHERE a.nome = :nome")
     Aluno findByName(@Param("nome") String nome);
@@ -23,4 +23,20 @@ public interface AlunoRepository extends JpaRepository<Aluno, Long> {
     @Modifying
     @Query("UPDATE Aluno a SET a.password = :password WHERE a.username = :username")
     void updatePassword(@Param("username") String username, @Param("password") String password);
+
+    @Modifying
+    @Query("UPDATE Aluno a SET a.accountNonExpired = :state WHERE a.username = :username")
+    void updateAccountNonExpired(@Param("username") String username, @Param("state") boolean state);
+
+    @Modifying
+    @Query("UPDATE Aluno a SET a.accountNonLocked = :state WHERE a.username = :username")
+    void updateAccountNonLocked(@Param("username") String username, @Param("state") boolean state);
+
+    @Modifying
+    @Query("UPDATE Aluno a SET a.accountCredentialsNonExpired = :state WHERE a.username = :username")
+    void updateCredentialsNonExpired(@Param("username") String username, @Param("state") boolean state);
+
+    @Modifying
+    @Query("UPDATE Aluno a SET a.enabled = :state WHERE a.username = :username")
+    void updateEnabled(@Param("username") String username, @Param("state") boolean state);
 }
